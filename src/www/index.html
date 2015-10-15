@@ -1,0 +1,25 @@
+<html ng-app="gb24">
+	<head>
+		<script data-main="/js/main" src="/js/lib/require.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	</head>
+	<body ng-controller="gb24Participants">
+		<div class="content" ng-cloak>
+			<h1>Deelnemers</h1>
+			<table>
+				<thead>
+					<th>id</th>
+					<th>naam</th>
+					<th>rondes</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="participant in participants">
+						<td>{{participant.id}}</td>
+						<td>{{participant.name}}</td>
+						<td>{{participant.laps}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
