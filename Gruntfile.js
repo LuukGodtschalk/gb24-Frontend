@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     jscs: {
       src: ['<%= jshint.files %>'],
       options: {
-        config: ".jscsrc"
+        config: '.jscsrc'
       }
     },
     watch: {
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-requirejs');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks("grunt-jscs");
+  grunt.loadNpmTasks('grunt-jscs');
 
   grunt.registerTask('default', ['jshint', 'jscs']);
   grunt.registerTask('dev', ['watch']);
