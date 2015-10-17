@@ -1,0 +1,12 @@
+{
+  "name": "gb24-Frontend",
+  "description": "Frontend server for the gb24 webapp",
+  "main": "",
+  "authors": [
+    "Luuk Godtschalk <godtschalk.luuk@gmail.com>"
+  ],
+  "license": "None",
+  "homepage": "https://github.com/LuukGodtschalk/gb24-Frontend",
+  "moduleType": [],
+  "private": true
+}

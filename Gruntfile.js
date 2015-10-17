@@ -27,6 +27,19 @@ module.exports = function(grunt) {
           dest: 'build/'
         }]
       }
+    },
+    jshint: {
+      files: ['*.js', 'src/www/js/app/**.js', 'src/server/**.js'],
+    },
+    jscs: {
+      src: ['<%= jshint.files %>'],
+      options: {
+        config: ".jscsrc"
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'jscs']
     }
   });
 
@@ -34,8 +47,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-bower-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks("grunt-jscs");
 
-  // Default task(s).
-  grunt.registerTask('default', ['copy', 'requirejs']);
+  grunt.registerTask('default', ['jshint', 'jscs']);
+  grunt.registerTask('dev', ['watch']);
+  grunt.registerTask('build', ['copy', 'requirejs']);
 
 };
