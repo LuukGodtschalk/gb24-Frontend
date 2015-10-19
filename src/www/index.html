@@ -3,23 +3,41 @@
 		<script data-main="/js/main" src="/js/lib/require.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 	</head>
-	<body ng-controller="gb24Participants">
-		<div class="content" ng-cloak>
-			<h1>Deelnemers</h1>
-			<table>
-				<thead>
-					<th>id</th>
-					<th>naam</th>
-					<th>rondes</th>
-				</thead>
-				<tbody>
-					<tr ng-repeat="participant in participants">
-						<td>{{participant.id}}</td>
-						<td>{{participant.name}}</td>
-						<td>{{participant.laps}}</td>
-					</tr>
-				</tbody>
-			</table>
+	<body ng-controller="gb24TabController as tabCtrl" ng-cloak>
+		<div class="panel navbar">
+			<ul>
+				<li ng-repeat="tab in tabs"><a href="#{{tab.url}}" ng-click="setTab(tab.id)">{{tab.name}}</a></li>
+			</ul>
+		</div>
+		<div class="panel content">
+			<div class="tab" ng-show="activeTab == 1" ng-controller="gb24Participants">
+				<h1>Deelnemers</h1>
+				<table>
+					<thead>
+						<th>id</th>
+						<th>naam</th>
+						<th>rondes</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="participant in participants">
+							<td>{{participant.id}}</td>
+							<td>{{participant.name}}</td>
+							<td>{{participant.laps}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tab" ng-show="activeTab == 2" ng-controller="gb24Categories">
+				<h1>Categorie&euml;n</h1>
+				<table>
+					<tbody>
+						<tr ng-repeat="category in categories">
+							<td><a href>{{category.name}}</a></td>
+							<td>&gt;</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 require.config({
 	baseUrl: 'js/',
 	paths: {
-		gb24: 'app/index',
+		app: 'app',
 		angular: 'lib/angular'
 	},
 	shim: {
@@ -11,4 +11,4 @@ require.config({
 	}
 });
 
-require(['gb24']);
+require(['app/index', 'app/components']);

@@ -1,11 +1,11 @@
 define(['app/index'], function (app) {
 //var app = require('app/index');
 console.log(app);
-app.controller('gb24Participants', ['$scope', '$http', function($scope, $http) {
+app.controller('gb24Categories', ['$scope', '$http', function($scope, $http) {
   $scope.participants = [];
-  $http.get('/participants.json')
+  $http.get('/categories.json')
     .success(function (data) {
-      $scope.participants = data;
+      $scope.categories = data;
       console.log(data);
     })
     .error(function (data) {
@@ -13,8 +13,8 @@ app.controller('gb24Participants', ['$scope', '$http', function($scope, $http) {
     });
 }]);
 return {
-  id: 1,
-  name: 'Deelnemers',
-  url: 'deelnemers'
+  id: 2,
+  name: 'Categorieën',
+  url: 'categorieen'
 }
 });
