@@ -1,7 +1,7 @@
-define(['app/index'], function (app) {
-//var app = require('app/index');
-console.log(app);
-app.controller('gb24Categories', ['$scope', '$http', function($scope, $http) {
+define(function (require) {
+var app = require('gb24');
+
+app.controller('gb24Categories', ['$scope', '$http', function ($scope, $http) {
   $scope.participants = [];
   $http.get('/categories.json')
     .success(function (data) {
@@ -16,5 +16,5 @@ return {
   id: 2,
   name: 'Categorieën',
   url: 'categorieen'
-}
+};
 });
