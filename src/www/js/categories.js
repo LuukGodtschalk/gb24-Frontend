@@ -1,7 +1,6 @@
-define(function (require) {
-var app = require('gb24');
+var app = angular.module('gb24');
 
-app.controller('gb24Categories', ['$scope', '$http', function ($scope, $http) {
+app.controller('gb24Categories', function ($scope, $http) {
   $scope.participants = [];
   $http.get('/categories.json')
     .success(function (data) {
@@ -11,10 +10,13 @@ app.controller('gb24Categories', ['$scope', '$http', function ($scope, $http) {
     .error(function (data) {
       console.log('Error: ' + data);
     });
-}]);
-return {
+});
+
+module.exports = {
   id: 2,
   name: 'Categorieën',
-  url: 'categorieen'
+  url: '/categorieen',
+  parent: '/',
+  templateUrl: '/categories.html',
+  controller: 'gb24Categories'
 };
-});

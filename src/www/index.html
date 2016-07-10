@@ -1,42 +1,31 @@
 <html ng-app="gb24">
 	<head>
-		<script data-main="/js/main" src="/js/lib/require.js"></script>
+		<script src="/js/bundle.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<title ng-bind="'GB24 | ' + title"></title>
 	</head>
-	<body ng-controller="gb24TabController as tabCtrl" ng-cloak>
-		<div class="panel navbar">
-			<ul>
-				<li ng-repeat="tab in tabs"><a href="#{{tab.url}}" ng-click="setTab(tab.id)">{{tab.name}}</a></li>
-			</ul>
-		</div>
-		<div class="panel content">
-			<div class="tab" ng-show="activeTab == 1" ng-controller="gb24Participants">
-				<h1>Deelnemers</h1>
-				<table>
-					<thead>
-						<th>id</th>
-						<th>naam</th>
-						<th>rondes</th>
-					</thead>
-					<tbody>
-						<tr ng-repeat="participant in participants">
-							<td>{{participant.id}}</td>
-							<td>{{participant.name}}</td>
-							<td>{{participant.laps}}</td>
-						</tr>
-					</tbody>
-				</table>
+	<body ng-cloak>
+		<div class="header">
+			<div class="header-content">
+				<div class="navbar" ng-controller="gb24Navbar as nav">
+					<a href="#/" class="logo-holder"><img src="/img/logo_small.png"/></a>
+					<ul>
+						<li class="tab" ng-repeat="tab in tabs" ng-class="{current: tab.url == currentUrl}"><a href="#{{tab.url}}">{{tab.name}}</a></li>
+					</ul>
+				</div>
+				<div class="titlebar">
+					<div ng-if="back" class="backbutton"><a ng-href="#{{back}}">&smt;</a></div>
+					<h2 class="title">{{title}}</h2>
+				</div>
 			</div>
-			<div class="tab" ng-show="activeTab == 2" ng-controller="gb24Categories">
-				<h1>Categorie&euml;n</h1>
-				<table>
-					<tbody>
-						<tr ng-repeat="category in categories">
-							<td><a href>{{category.name}}</a></td>
-							<td>&gt;</td>
-						</tr>
-					</tbody>
-				</table>
+		</div>
+		<div class="content">
+			<div class="grid grid-left">
+				<div class="panel view" ng-view></div>
+			</div>
+			<div class="grid grid-right">
+				<div class="panel sponsors">Sponsors here</div>
 			</div>
 		</div>
 	</body>

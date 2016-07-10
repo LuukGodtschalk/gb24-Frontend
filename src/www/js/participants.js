@@ -1,5 +1,5 @@
-define(function (require) {
-var app = require('gb24');
+console.log(app);
+var app = angular.module('gb24');
 
 app.controller('gb24Participants', ['$scope', '$http', function ($scope, $http) {
   $scope.participants = [];
@@ -12,9 +12,12 @@ app.controller('gb24Participants', ['$scope', '$http', function ($scope, $http) 
       console.log('Error: ' + data);
     });
 }]);
-return {
-  id: 1,
+
+module.exports = {
+  id: 3,
   name: 'Deelnemers',
-  url: 'deelnemers'
+  url: '/deelnemers',
+  parent: '/',
+  templateUrl: '/participants.html',
+  controller: 'gb24Participants'
 };
-});

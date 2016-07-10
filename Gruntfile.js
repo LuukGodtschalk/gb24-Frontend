@@ -18,18 +18,28 @@ module.exports = function (grunt) {
         }
       }
     },
+    webpack: {
+      dev: {
+        context: __dirname + '/src/www/js',
+        entry: './index.js',
+        output: {
+          path: __dirname + '/src/www/js',
+          filename: 'bundle.js'
+        }
+      }
+    },
     copy: {
       main: {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: ['www/*', 'www/css/**', 'server/**', 'www/js/lib/require.js'],
+          src: ['www/*', 'www/css/**', 'www/img/**', 'server/**', 'www/js/bundle.js'],
           dest: 'build/'
         }]
       }
     },
     jshint: {
-      files: ['*.js', 'src/www/js/app/**.js', 'src/server/**.js'],
+      files: ['src/www/js/*.js', '!src/www/js/bundle.js', 'src/www/js/app/**.js', 'src/server/**.js'],
     },
     jscs: {
       src: ['<%= jshint.files %>'],
@@ -38,8 +48,14 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'jscs']
+      options: {
+        livereload: true
+      },
+      files: ['src/www/**'],
+      js: {
+        files: ['<%= jshint.files %>'],
+        tasks: ['jshint', 'jscs', 'webpack']
+      }
     }
   });
 
@@ -52,9 +68,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jscs');
+  grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['jshint', 'jscs']);
-  grunt.registerTask('dev', ['watch']);
-  grunt.registerTask('build', ['copy', 'requirejs']);
+  grunt.registerTask('default', ['jshint', 'jscs', 'webpack']);
+  grunt.registerTask('dev', ['default', 'watch']);
+  grunt.registerTask('build', ['copy']);
 
 };
