@@ -3,27 +3,22 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    requirejs: {
-      compile: {
-        options: {
-          optimize: 'none',
-          uglify: {
-            max_line_length: 1000,
-            banner: '/*!<%= grunt.template.today("yyyy-mm-dd") %> */\n'
-          },
-          baseUrl: 'src/www/js',
-          mainConfigFile: 'src/www/js/main.js',
-          name: 'main',
-          out: 'build/www/js/main.js'
-        }
-      }
-    },
     webpack: {
+      context: __dirname + '/src/www/js',
+      entry: './index.js',
       dev: {
         context: __dirname + '/src/www/js',
         entry: './index.js',
         output: {
           path: __dirname + '/src/www/js',
+          filename: 'bundle.js'
+        }
+      },
+      build: {
+        context: __dirname + '/src/www/js',
+        entry: './index.js',
+        output: {
+          path: __dirname + '/build/www/js',
           filename: 'bundle.js'
         }
       }
@@ -33,9 +28,16 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'src/',
-          src: ['www/*', 'www/css/**', 'www/img/**', 'server/**', 'www/js/bundle.js'],
+          src: ['www/*', 'www/css/**', 'www/img/**', 'server/**'],
           dest: 'build/'
         }]
+      }
+    },
+    clean: {
+      dev: ['src/www/js/bundle.js'],
+      build: ['build/*'],
+      options: {
+        'no-write': false
       }
     },
     jshint: {
@@ -61,17 +63,16 @@ module.exports = function (grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-bower-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['jshint', 'jscs', 'webpack']);
+  grunt.registerTask('default', ['check', 'clean:dev', 'webpack:dev']);
+  grunt.registerTask('check', ['jshint', 'jscs']);
   grunt.registerTask('dev', ['default', 'watch']);
-  grunt.registerTask('build', ['copy']);
+  grunt.registerTask('build', ['check', 'clean:build', 'copy', 'webpack:build']);
 
 };
