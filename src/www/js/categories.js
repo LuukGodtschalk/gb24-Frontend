@@ -1,6 +1,6 @@
 var app = angular.module('gb24');
 
-app.controller('gb24Categories', function ($scope, $http) {
+app.controller('gb24Categories', ['$scope', '$http', function ($scope, $http) {
   $scope.participants = [];
   $http.get('/categories.json')
     .success(function (data) {
@@ -10,7 +10,7 @@ app.controller('gb24Categories', function ($scope, $http) {
     .error(function (data) {
       console.log('Error: ' + data);
     });
-});
+}]);
 
 module.exports = {
   id: 2,

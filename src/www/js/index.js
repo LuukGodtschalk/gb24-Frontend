@@ -6,7 +6,7 @@ var components = require('./components');
 require('./eventManager');
 
 console.log(app);
-app.config(function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
   for (var n = 0; n < components.length; n++) {
     var route = components[n];
     console.log(route);
@@ -38,7 +38,7 @@ app.config(function ($routeProvider) {
   $routeProvider.otherwise({
     redirectTo: '/'
   });
-});
+}]);
 
 
 //return app;
