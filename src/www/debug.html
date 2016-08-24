@@ -1,0 +1,9 @@
+<div class="debug">
+  <p>debug</p>
+  <pre>
+  <table>
+    <tr ng-repeat="event in events track by $index"><td>{{event.name}}:</td><td>{{event.data}}</td><td><button ng-click="cancelWatcher(event)">Cancel</button></td></tr>
+  </table>
+  </pre>
+  <input ng-model="eventName"></input><button ng-click="addWatcher(eventName)">Add</button>
+</div>

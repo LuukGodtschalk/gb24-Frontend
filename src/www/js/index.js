@@ -3,6 +3,7 @@ var ngRoute = require('angular-route');
 
 var app = angular.module('gb24', ['ngRoute']);
 var components = require('./components');
+require('./eventManager');
 
 console.log(app);
 app.config(function ($routeProvider) {

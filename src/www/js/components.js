@@ -1,6 +1,12 @@
 var app = angular.module('gb24');
 
-var components = [require('./home'), require('./participants'), require('./participantDetails'), require('./categories')];
+var components = [
+  require('./home'),
+  require('./participants'),
+  require('./participantDetails'),
+  require('./categories'),
+  require('./debug')
+];
 var tabs = components.filter(function (element, index, array) {return element.id !== undefined;});
 console.log(components, tabs);
 
