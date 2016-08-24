@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
 
+  var webpack = require('webpack');
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -15,6 +16,19 @@ module.exports = function (grunt) {
         }
       },
       build: {
+        plugins: [
+          new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+              beautify: false,
+              preamble: "/*! Copyright 2016 Luuk Godtschalk */"
+            },
+            mangle: true,
+            comments: false
+          })
+        ],
         context: __dirname + '/src/www/js',
         entry: './index.js',
         output: {
@@ -51,7 +65,7 @@ module.exports = function (grunt) {
     },
     watch: {
       options: {
-        livereload: true
+        livereload: false
       },
       files: ['src/www/**'],
       js: {
