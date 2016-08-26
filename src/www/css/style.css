@@ -57,3 +57,17 @@ body {
 		width: 30%;
 	}
 }
+
+.countdown-box {
+	width: 80px;
+	display: inline-block;
+	text-align: center;
+}
+
+.countdown-counter {
+
+}
+
+.countdown-unit {
+
+}

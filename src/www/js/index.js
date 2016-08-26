@@ -4,6 +4,7 @@ var ngRoute = require('angular-route');
 var app = angular.module('gb24', ['ngRoute']);
 var components = require('./components');
 require('./eventManager');
+require('./countdown');
 
 console.log(app);
 app.config(['$routeProvider', function ($routeProvider) {
