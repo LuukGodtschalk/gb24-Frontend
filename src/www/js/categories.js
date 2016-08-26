@@ -14,7 +14,7 @@ app.controller('gb24Categories', ['$scope', '$http', function ($scope, $http) {
 
 module.exports = {
   id: 2,
-  name: 'Categorieën',
+  name: 'Klassement',
   url: '/categorieen',
   parent: '/',
   templateUrl: '/categories.html',

@@ -9,7 +9,7 @@
 		<div class="header">
 			<div class="header-content">
 				<div class="navbar" ng-controller="gb24Navbar as nav">
-					<a href="#/" class="logo-holder"><img src="/img/logo_small.png"/></a>
+					<a hidden href="#/" class="logo-holder"><img src="/img/logo_small.png"/></a>
 					<ul>
 						<li class="tab" ng-repeat="tab in tabs" ng-class="{current: tab.url == currentUrl}"><a href="#{{tab.url}}">{{tab.name}}</a></li>
 					</ul>
@@ -25,7 +25,12 @@
 				<div class="panel view" ng-view></div>
 			</div>
 			<div class="grid grid-right">
-				<div class="panel sponsors">Sponsors here</div>
+				<div class="panel sponsors">
+					<p>Mede mogelijk gemaakt door:</p>
+					<img src="http://www.smpnuenen.nl/images/images/SBJ.jpg">
+					<img src="http://www.smpnuenen.nl/images/images/SMA_SMA_MACHINE%20CONSTRUCTIONS_CMYK.jpg">
+					<img src="http://www.smpnuenen.nl/images/images/Cycletrend(1).jpg">
+				</div>
 			</div>
 		</div>
 	</body>

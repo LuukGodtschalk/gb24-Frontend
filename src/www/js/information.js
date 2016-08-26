@@ -1,7 +1,7 @@
 console.log(app);
 var app = angular.module('gb24');
 
-app.controller('gb24Participants', ['$scope', '$http', function ($scope, $http) {
+app.controller('gb24Info', ['$scope', '$http', function ($scope, $http) {
   $scope.participants = [];
   $http.get('/participants.json')
     .success(function (data) {
@@ -14,9 +14,10 @@ app.controller('gb24Participants', ['$scope', '$http', function ($scope, $http) 
 }]);
 
 module.exports = {
-  name: 'Klassement',
-  url: '/deelnemers',
+  id: 3,
+  name: 'Informatie',
+  url: '/info',
   parent: '/',
-  templateUrl: '/participants.html',
-  controller: 'gb24Participants'
+  templateUrl: '/info.html',
+  controller: 'gb24Info'
 };

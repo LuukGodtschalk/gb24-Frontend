@@ -71,3 +71,15 @@ body {
 .countdown-unit {
 
 }
+
+.image-map {
+	max-width: 100%;
+}
+
+.sponsors > img {
+	width: 100%;
+}
+
+.sponsors > img + img {
+	margin-top: 50px;
+}
