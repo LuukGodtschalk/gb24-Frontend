@@ -9,5 +9,6 @@ module.exports = {
   url: '/',
   parent: null,
   templateUrl: '/home.html',
+  iconUrl: '/img/home.png',
   controller: 'gb24Home'
 };

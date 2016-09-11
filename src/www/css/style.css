@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-	background-color: #CCC;
+	background-color: #4caf50;
 }
 
 .header .logo {
@@ -14,16 +14,33 @@ body {
 .header-content {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 500px;
+	max-width: 700px;
+}
+
+.navbar {
+	background-color: #4caf50;
+}
+
+.navbar a {
+	height: 100%;
+	color: black;
+	text-decoration: none;
+	vertical-align: middle;
 }
 
 .navbar .tab.current {
-	background-color: #BBB;
+	background-color: #81C784;
 }
 
-.header .backbutton {
-	margin-left: 10px;
+.titlebar .backbutton {
+	margin-left: 20px;
 	float: left;
+	vertical-align: middle;
+}
+
+.titlebar {
+	background-color: #C8E6C9;
+	padding: 8px 0 8px 0;
 }
 
 .titlebar > .title {
@@ -32,29 +49,33 @@ body {
 }
 
 .content {
-	max-width: 700px;
-	margin-top: 90px;
+	margin-top: 110px;
 	margin-bottom: 20px;
 }
 
 .grid {
 	width: 100%;
-	float: left;
 }
 
 .panel {
 	box-shadow: 0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12);
 	background-color: #FFF;
-	padding: 20px 20px 20px 20px;
 	margin: 20px 20px 20px 20px;
 }
 
-@media only screen and (min-width: 500px) {
+.view {
+	padding: 0 20px 20px 20px;
+}
+
+@media only screen and (min-width: 740px) {
 	.grid.grid-left {
 		width: 70%;
 	}
 	.grid.grid-right {
 		width: 30%;
+	}
+	.content {
+			max-width: 740px;
 	}
 }
 
@@ -82,4 +103,12 @@ body {
 
 .sponsors > img + img {
 	margin-top: 50px;
+}
+
+a {
+	color: rgb(0, 0, 238);
+}
+
+a:hover {
+	color: #4caf50;
 }

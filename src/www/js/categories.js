@@ -18,5 +18,6 @@ module.exports = {
   url: '/categorieen',
   parent: '/',
   templateUrl: '/categories.html',
+  iconUrl: '/img/klassement.png',
   controller: 'gb24Categories'
 };

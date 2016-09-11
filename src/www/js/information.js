@@ -19,5 +19,6 @@ module.exports = {
   url: '/info',
   parent: '/',
   templateUrl: '/info.html',
+  iconUrl: '/img/info.png',
   controller: 'gb24Info'
 };

@@ -11,10 +11,11 @@ var components = [
 var tabs = components.filter(function (element, index, array) {return element.id !== undefined;});
 console.log(components, tabs);
 
-app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScroll', function ($scope, $rootScope, $location, $anchorScroll) {
+app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScroll',
+ function ($scope, $rootScope, $location, $anchorScroll) {
   $scope.tabs = tabs;
   $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-    if($location.hash()) {
+    if ($location.hash()) {
       $anchorScroll();
     }
     var route = current.$$route || {title: 'Home'};

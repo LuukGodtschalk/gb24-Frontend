@@ -11,26 +11,21 @@
 				<div class="navbar" ng-controller="gb24Navbar as nav">
 					<a hidden href="#/" class="logo-holder"><img src="/img/logo_small.png"/></a>
 					<ul>
-						<li class="tab" ng-repeat="tab in tabs" ng-class="{current: tab.url == currentUrl}"><a href="#{{tab.url}}">{{tab.name}}</a></li>
+						<li class="tab" ng-repeat="tab in tabs" ng-class="{current: tab.url == currentUrl}"><a href="#{{tab.url}}"><img ng-src="{{tab.iconUrl}}"><span class="tabname">{{tab.name}}</span></a></li>
 					</ul>
 				</div>
-				<div class="titlebar">
-					<div ng-if="back" class="backbutton"><a ng-href="#{{back}}">&smt;</a></div>
-					<h2 class="title">{{title}}</h2>
-				</div>
+
 			</div>
 		</div>
 		<div class="content">
-			<div class="grid grid-left">
-				<div class="panel view" ng-view></div>
-			</div>
-			<div class="grid grid-right">
-				<div class="panel sponsors">
-					<p>Mede mogelijk gemaakt door:</p>
-					<img src="http://www.smpnuenen.nl/images/images/SBJ.jpg">
-					<img src="http://www.smpnuenen.nl/images/images/SMA_SMA_MACHINE%20CONSTRUCTIONS_CMYK.jpg">
-					<img src="http://www.smpnuenen.nl/images/images/Cycletrend(1).jpg">
+			<div class="panel">
+				<div class="titlebar">
+					<div ng-if="back" class="backbutton"><a ng-href="#{{back}}"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+</svg></a></div>
+					<h2 class="title">{{title}}</h2>
 				</div>
+				<div class="view" ng-view></div>
 			</div>
 		</div>
 	</body>
