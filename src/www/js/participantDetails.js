@@ -1,20 +1,17 @@
 var app = angular.module('gb24');
 
-app.controller('gb24ParticipantDetails', ['$scope', '$http', function ($scope, $http) {
+app.controller('gb24ParticipantDetails', ['$scope', 'eventManager', '$routeParams', function ($scope, eventManager, $routeParams) {
+  var participantId = $routeParams.participantId;
   $scope.data = [];
-  $http.get('/participantDetails.json')
-    .success(function (data) {
-      $scope.data = data;
-      console.log(data);
-    })
-    .error(function (data) {
-      console.log('Error: ' + data);
-    });
+  eventManager.watch('participants/' + participantId, function (msg) {
+    console.log(msg.data);
+    $scope.data = msg.data;
+  });
 }]);
 
 module.exports = {
   name: 'Details',
-  url: '/deelnemers/:id',
+  url: '/deelnemers/:participantId',
   parent: '/deelnemers/',
   templateUrl: '/participantDetails.html',
   controller: 'gb24ParticipantDetails'

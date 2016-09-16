@@ -1,17 +1,17 @@
-<div class="participants">
+<div class="ranking">
   <div class="table">
     <div class="table-head">
       <div class="table-cell">#</div>
       <div class="table-cell">naam</div>
-      <div class="table-cell">categorie</div>
       <div class="table-cell">rondes</div>
+      <div class="table-cell">laatste doorkomst</div>
     </div>
     <div class="table-body">
       <a ng-href="#/deelnemers/{{participant.bib}}" class="table-row participants-row" ng-repeat="participant in participants">
         <div class="table-cell">{{participant.bib}}</div>
         <div class="table-cell">{{participant.name}}</div>
-        <div class="table-cell">{{participant.category}}</div>
-        <div class="table-cell">{{participant.laps.length}}</div>
+        <div class="table-cell">{{participant.numlaps}}</div>
+        <div class="table-cell">{{participant.lastPassing}}</div>
       </tr>
     </div>
   </div>

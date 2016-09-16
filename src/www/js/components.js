@@ -5,6 +5,7 @@ var components = [
   require('./participants'),
   require('./participantDetails'),
   require('./categories'),
+  require('./ranking'),
   require('./information'),
   require('./debug')
 ];
@@ -24,6 +25,7 @@ app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScrol
     $rootScope.back = route.parent;
     $scope.currentUrl = route.originalPath;
   });
+  $rootScope.endtime = new Date(2016, 8, 24, 13, 0);
 }]);
 
 module.exports = components;

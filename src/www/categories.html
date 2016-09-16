@@ -1,10 +1,12 @@
 <div class="category">
+  <h3>Zoek op categorie</h3>
   <table>
     <tbody>
       <tr ng-repeat="category in categories">
-        <td><a href>{{category.name}}</a></td>
-        <td>&gt;</td>
+        <td><a ng-href="#/klassement/{{category.id}}">{{category.name}}</a></td>
       </tr>
     </tbody>
   </table>
+  of
+  <h3><a href="#/deelnemers">Zoek op deelnemer</a></h3>
 </div>

@@ -1,20 +1,16 @@
 console.log(app);
 var app = angular.module('gb24');
 
-app.controller('gb24Participants', ['$scope', '$http', function ($scope, $http) {
+app.controller('gb24Participants', ['$scope', 'eventManager', function ($scope, eventManager) {
   $scope.participants = [];
-  $http.get('/participants.json')
-    .success(function (data) {
-      $scope.participants = data;
-      console.log(data);
-    })
-    .error(function (data) {
-      console.log('Error: ' + data);
-    });
+  eventManager.watch('participants', function (msg) {
+    console.log(msg.data);
+    $scope.participants = msg.data;
+  });
 }]);
 
 module.exports = {
-  name: 'Klassement',
+  name: 'Deelnemers',
   url: '/deelnemers',
   parent: '/',
   templateUrl: '/participants.html',
