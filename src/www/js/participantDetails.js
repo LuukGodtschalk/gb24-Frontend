@@ -13,6 +13,7 @@ module.exports = {
   name: 'Details',
   url: '/deelnemers/:participantId',
   parent: '/deelnemers/',
+  socketStatus: true,
   templateUrl: '/participantDetails.html',
   controller: 'gb24ParticipantDetails'
 };

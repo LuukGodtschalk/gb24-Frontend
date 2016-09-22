@@ -1,5 +1,5 @@
 [
-	{"id": "1", "name": "Jos Engelen", "laps": 63},
-	{"id": "2", "name": "Joeri Martens", "laps": 57},
-	{"id": "341", "name": "Limoncelloboys", "laps": 41}
+	{"bib": 1, "name": "Jos Engelen", "category": "24-uurs individueel", "categoryId": 2, "chip": "RR19375"},
+	{"bib": 9, "name": "Joeri Martens", "category": "24-uurs individueel", "categoryId": 2, "chip": "SC36396"},
+	{"bib": 22, "name": "Luc Smits", "category": "24-uurs individueel", "categoryId": 2, "chip": "PF98205"}
 ]

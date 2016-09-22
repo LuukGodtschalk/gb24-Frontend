@@ -84,7 +84,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['check', 'clean:dev', 'webpack:dev']);
+  grunt.registerTask('default', ['clean:dev', 'webpack:dev']);
   grunt.registerTask('check', ['jshint', 'jscs']);
   grunt.registerTask('dev', ['default', 'watch']);
   grunt.registerTask('build', ['check', 'clean:build', 'copy', 'webpack:build']);

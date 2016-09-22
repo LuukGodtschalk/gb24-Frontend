@@ -4,6 +4,11 @@
 		<link rel="stylesheet" type="text/css" href="/css/base.css"/>
 		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 		<title ng-bind="'GB24 | ' + title"></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/img/favicon-32x32.jpg" sizes="32x32">
+		<link rel="icon" href="/img/favicon-192x192.jpg" sizes="192x192">
+		<link rel="apple-touch-icon-precomposed" href="/img/favicon-180x180.jpg">
+		<meta name="msapplication-TileImage" content="/img/favicon-270x270.jpg">
 	</head>
 	<body ng-cloak>
 		<div class="header">
@@ -19,14 +24,29 @@
 		<div class="content">
 			<div class="titlebar">
 				<b class="title">{{title}}</b>
+				<div class="status-box" ng-show="socketStatus" ng-controller="gb24SocketStatus">
+					<div class="live" ng-if="status == 'connected'">
+						<div class="icon-live animate-flicker"></div>
+							Live
+					</div>
+					<div class="connecting" ng-if="status != 'connected'">
+						<span ng-if="status == 'connecting'">Verbinden</span>
+						<span ng-if="status == 'loading'">Laden</span>
+						<div class="spinner">
+							<div class="bounce1"></div>
+							<div class="bounce2"></div>
+							<div class="bounce3"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="view" ng-view></div>
 		</div>
 		<div class="footer">
 			<section>
-		      Klaar voor de start?<br>
-		      <countdown endtime="endtime"></countdown>
-		  </section>
+					Klaar voor de start?<br>
+					<countdown endtime="endtime"></countdown>
+			</section>
 		</div>
 	</body>
 </html>

@@ -1,18 +1,16 @@
 <div class="participants">
-  <div class="table">
+  <div class="table striped bordered fixed">
     <div class="table-head">
-      <div class="table-cell">#</div>
-      <div class="table-cell">naam</div>
-      <div class="table-cell">categorie</div>
-      <div class="table-cell">rondes</div>
+      <div class="table-cell bib">#</div>
+      <div class="table-cell name">naam</div>
+      <div class="table-cell category">categorie</div>
     </div>
     <div class="table-body">
       <a ng-href="#/deelnemers/{{participant.bib}}" class="table-row participants-row" ng-repeat="participant in participants">
-        <div class="table-cell">{{participant.bib}}</div>
-        <div class="table-cell">{{participant.name}}</div>
-        <div class="table-cell">{{participant.category}}</div>
-        <div class="table-cell">{{participant.laps.length}}</div>
-      </tr>
+        <div class="table-cell bib">{{participant.bib}}</div>
+        <div class="table-cell name">{{participant.name}}</div>
+        <div class="table-cell category">{{participant.category}}</div>
+      </a>
     </div>
   </div>
 </div>

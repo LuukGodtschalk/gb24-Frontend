@@ -23,6 +23,7 @@ app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScrol
     console.log(current, route);
     $rootScope.title = route.title;
     $rootScope.back = route.parent;
+    $rootScope.socketStatus = route.socketStatus;
     $scope.currentUrl = route.originalPath;
   });
   $rootScope.endtime = new Date(2016, 8, 24, 13, 0);

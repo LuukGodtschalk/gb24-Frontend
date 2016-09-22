@@ -29,6 +29,7 @@ module.exports = {
   name: 'Debug',
   url: '/debug',
   parent: '/',
+  socketStatus: true,
   templateUrl: '/debug.html',
   controller: 'debug'
 };

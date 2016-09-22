@@ -1,17 +1,25 @@
 <div class="ranking">
-  <div class="table">
+  <div class="table striped bordered fixed">
     <div class="table-head">
-      <div class="table-cell">#</div>
-      <div class="table-cell">naam</div>
-      <div class="table-cell">rondes</div>
-      <div class="table-cell">laatste doorkomst</div>
+      <div class="table-cell bib"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z" />
+</svg></div>
+      <div class="table-cell name"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M16,13C15.71,13 15.38,13 15.03,13.05C16.19,13.89 17,15 17,16.5V19H23V16.5C23,14.17 18.33,13 16,13M8,13C5.67,13 1,14.17 1,16.5V19H15V16.5C15,14.17 10.33,13 8,13M8,11A3,3 0 0,0 11,8A3,3 0 0,0 8,5A3,3 0 0,0 5,8A3,3 0 0,0 8,11M16,11A3,3 0 0,0 19,8A3,3 0 0,0 16,5A3,3 0 0,0 13,8A3,3 0 0,0 16,11Z" />
+</svg></div>
+      <div class="table-cell laps"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M14.4,6H20V16H13L12.6,14H7V21H5V4H14L14.4,6M14,14H16V12H18V10H16V8H14V10L13,8V6H11V8H9V6H7V8H9V10H7V12H9V10H11V12H13V10L14,12V14M11,10V8H13V10H11M14,10H16V12H14V10Z" />
+</svg></div>
+      <div class="table-cell last-passing"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="#000000" d="M12,1C8.14,1 5,4.14 5,8A7,7 0 0,0 12,15C15.86,15 19,11.87 19,8C19,4.14 15.86,1 12,1M12,3.15C14.67,3.15 16.85,5.32 16.85,8C16.85,10.68 14.67,12.85 12,12.85A4.85,4.85 0 0,1 7.15,8A4.85,4.85 0 0,1 12,3.15M11,5V8.69L14.19,10.53L14.94,9.23L12.5,7.82V5M4,16V24H6V21H18V24L22,20L18,16V19H6V16" />
+</svg></div>
     </div>
     <div class="table-body">
       <a ng-href="#/deelnemers/{{participant.bib}}" class="table-row participants-row" ng-repeat="participant in participants">
-        <div class="table-cell">{{participant.bib}}</div>
-        <div class="table-cell">{{participant.name}}</div>
-        <div class="table-cell">{{participant.numlaps}}</div>
-        <div class="table-cell">{{participant.lastPassing}}</div>
+        <div class="table-cell bib">{{participant.bib}}</div>
+        <div class="table-cell name">{{participant.name}}</div>
+        <div class="table-cell laps">{{participant.numlaps}}</div>
+        <div class="table-cell last-passing">{{participant.lastPassing | date:'HH:mm'}}</div>
       </tr>
     </div>
   </div>

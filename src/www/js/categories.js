@@ -17,7 +17,8 @@ module.exports = {
   name: 'Klassement',
   url: '/klassement',
   parent: '/',
+  socketStatus: true,
   templateUrl: '/categories.html',
-  iconUrl: '/img/klassement.png',
+  iconUrl: '/img/trophy-outline.png',
   controller: 'gb24Categories'
 };

@@ -5,6 +5,7 @@ var app = angular.module('gb24', ['ngRoute']);
 var components = require('./components');
 require('./eventManager');
 require('./countdown');
+require('./socketStatus');
 
 console.log(app);
 app.config(['$routeProvider', function ($routeProvider) {
@@ -14,6 +15,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when(route.url, {
       title: route.name,
       parent: route.parent,
+      socketStatus: route.socketStatus,
       controller: route.controller,
       templateUrl: route.templateUrl
     });

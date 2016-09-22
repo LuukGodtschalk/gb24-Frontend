@@ -14,6 +14,7 @@ module.exports = {
   name: 'Deelnemers',
   url: '/klassement/:categoryId',
   parent: '/',
+  socketStatus: true,
   templateUrl: '/ranking.html',
   controller: 'gb24Ranking'
 };
