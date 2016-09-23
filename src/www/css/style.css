@@ -357,3 +357,13 @@ a:hover {
 	display: inline;
 	font-size: 80%;
 }
+
+.disclaimer {
+	margin-top: 10px;
+	border: 2px dashed #4CAF50;
+	padding: 10px;
+}
+
+.disclaimer > svg {
+	vertical-align: bottom;
+}
