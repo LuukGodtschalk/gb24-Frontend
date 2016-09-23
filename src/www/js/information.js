@@ -1,4 +1,3 @@
-console.log(app);
 var app = angular.module('gb24');
 
 app.controller('gb24Info', ['$scope', '$http', function ($scope, $http) {
@@ -6,10 +5,9 @@ app.controller('gb24Info', ['$scope', '$http', function ($scope, $http) {
   $http.get('/participants.json')
     .success(function (data) {
       $scope.participants = data;
-      console.log(data);
     })
     .error(function (data) {
-      console.log('Error: ' + data);
+      console.error('Error: ' + data);
     });
 }]);
 

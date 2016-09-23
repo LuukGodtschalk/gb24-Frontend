@@ -10,7 +10,6 @@ var components = [
   require('./debug')
 ];
 var tabs = components.filter(function (element, index, array) {return element.id !== undefined;});
-console.log(components, tabs);
 
 app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScroll',
  function ($scope, $rootScope, $location, $anchorScroll) {
@@ -20,7 +19,6 @@ app.controller('gb24Navbar', ['$scope', '$rootScope', '$location', '$anchorScrol
       $anchorScroll();
     }
     var route = current.$$route || {title: 'Home'};
-    console.log(current, route);
     $rootScope.title = route.title;
     $rootScope.back = route.parent;
     $rootScope.socketStatus = route.socketStatus;

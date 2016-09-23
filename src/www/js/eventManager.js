@@ -61,7 +61,6 @@ app.factory('eventManager', ['$timeout', '$http', function ($timeout, $http) {
       }
       status.connection = newStatus;
     }
-    console.log(events, newStatus);
     processUpdate({event: 'connection_status', data: status.connection});
   }
 
@@ -113,7 +112,6 @@ app.factory('eventManager', ['$timeout', '$http', function ($timeout, $http) {
           });
         } else {
           socket.emit('subscribe', eventName, function (ack) {
-            console.log(ack);
             eventEntry.status = OPEN;
             processUpdate(ack);
           });

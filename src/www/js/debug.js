@@ -2,9 +2,6 @@ var app = angular.module('gb24');
 
 app.controller('debug', ['$scope', 'eventManager', function ($scope, eventManager) {
   $scope.events = [];
-  eventManager.watch('participants', function (newData, old) {
-    console.log('UPDATE: ' + old + ' -> ' + newData);
-  });
 
   $scope.addWatcher = function (eventName) {
     var entry = {

@@ -4,7 +4,6 @@ app.controller('gb24ParticipantDetails', ['$scope', 'eventManager', '$routeParam
   var participantId = $routeParams.participantId;
   $scope.data = [];
   eventManager.watch('participants/' + participantId, function (msg) {
-    console.log(msg.data);
     $scope.data = msg.data;
   });
 }]);

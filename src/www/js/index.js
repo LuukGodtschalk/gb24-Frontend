@@ -7,11 +7,9 @@ require('./eventManager');
 require('./countdown');
 require('./socketStatus');
 
-console.log(app);
 app.config(['$routeProvider', function ($routeProvider) {
   for (var n = 0; n < components.length; n++) {
     var route = components[n];
-    console.log(route);
     $routeProvider.when(route.url, {
       title: route.name,
       parent: route.parent,
