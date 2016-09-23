@@ -34,7 +34,7 @@ app.factory('eventManager', ['$timeout', '$http', function ($timeout, $http) {
 
   socket.on('disconnect', function () {
     status.connection = CONNECTING;
-    updateStatus();
+    refreshAll();
   });
 
   socket.on('connection_error', function () {
@@ -54,14 +54,30 @@ app.factory('eventManager', ['$timeout', '$http', function ($timeout, $http) {
   function updateStatus() {
     if (status.connection === LOADING || status.connection === CONNECTED) {
       var newStatus = CONNECTED;
-      for (eventName in events) {
+      for (var eventName in events) {
         if (events[eventName].status !== OPEN) {
           newStatus = LOADING;
         }
       }
       status.connection = newStatus;
     }
+    console.log(events, newStatus);
     processUpdate({event: 'connection_status', data: status.connection});
+  }
+
+  function refreshAll() {
+    for (var eventName in events) {
+      if (eventName !== 'connection_status') {
+        events[eventName].status = LOADING;
+        socket.emit('subscribe', eventName, function (ack) {
+          //warning: eventName can be pointing to something else at this point.
+          //use ack.event instead.
+          events[ack.event].status = OPEN;
+          processUpdate(ack);
+        });
+      }
+    }
+    updateStatus();
   }
 
   function processUpdate(msg) {
