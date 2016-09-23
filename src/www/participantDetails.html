@@ -65,7 +65,7 @@
     <div class="table-row" ng-repeat="lap in data.laps">
       <div class="table-cell">{{lap.lapnum}}</div>
       <div class="table-cell">{{lap.time | date:'HH:mm'}}</div>
-      <div class="table-cell"></div>
+      <div class="table-cell">{{lap.laptime | date:'mm:ss'}}</div>
     </div>
   </div>
   <div class="disclaimer">
